@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="ko">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>에너지 한 줌 | 절약 계산기</title><meta name="description" content="불을 끈 작은 실천, 얼마나 아꼈을까요? 학교와 집에서 쓰는 에너지 절약 계산기."><link rel="stylesheet" href="style.css"></head>
+<body>
+<header><a class="brand" href="./"><span class="brand-icon">✳</span> 에너지 한 줌</a><span class="sdg">SDGs 7 · 깨끗한 에너지</span></header>
+<main>
+<div class="intro"><span class="eyebrow">작은 실천을, 보이는 변화로</span><h1>잠깐 꺼두면,<br>얼마나 아낄까요?</h1><p>학교에서도 집에서도.<br class="mobile"> 아낀 에너지를 간단하게 확인해 보세요.</p></div>
+<div class="calculator">
+<section class="input-panel" aria-labelledby="input-title"><h2 id="input-title">무엇을 껐나요?</h2>
+<form id="calculator">
+<fieldset class="appliances"><legend class="sr-only">가전 유형</legend>
+<label><input type="radio" name="device" value="light" checked><span><svg viewBox="0 0 32 32" aria-hidden="true"><path d="M11 21c0-4-5-5-5-11a10 10 0 0 1 20 0c0 6-5 7-5 11M11 23h10M12 27h8M14 30h4M12 12l4 4 4-4M16 16v7"/></svg>전등</span></label>
+<label><input type="radio" name="device" value="tv"><span><svg viewBox="0 0 32 32" aria-hidden="true"><rect x="3" y="5" width="26" height="19" rx="3"/><path d="M11 29h10M16 24v5"/></svg>TV</span></label>
+<label><input type="radio" name="device" value="ac"><span><svg viewBox="0 0 32 32" aria-hidden="true"><rect x="2" y="4" width="28" height="13" rx="3"/><path d="M6 12h20M9 21v6M16 21v9M23 21v6"/></svg>에어컨</span></label>
+</fieldset>
+<div class="field"><label for="count">가전 개수</label><div class="input-unit"><input id="count" type="number" min="1" max="100000" step="1" value="1" required><span>개</span></div></div>
+<fieldset class="power-mode"><legend>소비전력을 알고 있나요?</legend><label><input type="radio" name="mode" value="known" checked> 알고 있음</label><label><input type="radio" name="mode" value="unknown"> 모름 · 참고값 사용</label></fieldset>
+<div class="field"><label for="power">1개당 소비전력</label><div class="input-unit"><input id="power" type="number" min="0.01" max="10000000" step="any" placeholder="제품 라벨의 숫자 입력" required><span>W</span></div><p class="hint" id="power-hint">제품이나 에너지소비효율 라벨을 확인해 주세요.</p></div>
+<div class="field"><label for="minutes">전원을 끈 시간</label><div class="input-unit"><input id="minutes" type="number" min="0" max="52560000" step="any" value="30" required><span>분</span></div><div class="time-presets"><button type="button" data-time="10">10분</button><button type="button" data-time="30">30분</button><button type="button" data-time="60">1시간</button><button type="button" data-time="120">2시간</button></div></div>
+<button type="submit" class="calculate">절약량 계산하기</button>
+</form></section>
+<section class="result-panel" aria-labelledby="result-title"><div class="result-top"><span class="eyebrow">나의 작은 실천</span><span class="leaf" aria-hidden="true">✳</span></div><h2 id="result-title">오늘 아낀 에너지</h2>
+<div id="result" role="status" aria-live="polite"><div class="energy"><span id="kwh">—</span><span class="energy-unit">kWh</span></div><p class="wh" id="wh">입력하고 계산 버튼을 눌러 주세요.</p><div class="result-rule"></div><p class="result-message" id="message">불필요한 전원을 끄는 것부터,<br>에너지 절약이 시작돼요.</p><div id="detail" hidden><div class="stat"><span>계속 켜뒀다면 낭비할 에너지</span><strong id="waste"></strong></div><div class="stat"><span>같은 시간 대비 사용량 절감률</span><strong id="rate"></strong></div><p class="assumption">절감률은 입력한 시간 동안 계속 켜둔 경우와 완전히 끈 경우를 비교한 값입니다. 기기 자체의 에너지 효율 등급과는 달라요.</p><p class="formula" id="formula"></p></div></div>
+<div class="result-note"><strong>계산은 간단하게</strong><p>소비전력(W) × 개수 × 끈 시간(시간)<br>1,000 Wh = 1 kWh</p></div></section>
+</div>
+<details class="sources"><summary>참고 소비전력과 출처 보기</summary><div><p>모름을 선택하면 아래 대표값을 사용합니다. 국내 가전 전체의 통계 평균이 아니며, 제품 크기와 작동 방식에 따라 실제 소비전력은 달라집니다.</p><ul><li>전등 10 W: 60 W 백열전구 밝기에 해당하는 LED 전구</li><li>TV 100 W: 40인치 미만 디지털 HD TV</li><li>에어컨 1,000 W: 방 1개용 에어컨</li></ul><p>출처: <a href="https://www.psegliny.com/saveenergyandmoney/tipsandtools/energyguide" target="_blank" rel="noopener noreferrer">PSEG Long Island · Electronics Energy Guide</a> (확인: 2026.11.24)</p><p>일정한 전력으로 작동하고, 끈 동안 소비전력이 0 W라고 가정한 추정치입니다. 대기전력과 에어컨의 가변 운전은 반영하지 않습니다. 플러그를 뽑아 아낀 대기전력을 계산할 때는 해당 대기전력(W)을 직접 입력해 주세요.</p></div></details>
+<footer>오늘의 작은 절약이 내일의 깨끗한 에너지로.</footer>
+</main><script src="app.js"></script></body></html>
